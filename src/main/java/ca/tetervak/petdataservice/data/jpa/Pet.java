@@ -1,5 +1,8 @@
 package ca.tetervak.petdataservice.data.jpa;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +22,11 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
+
+    @JsonGetter
+    Integer getOwnerId(){
+        return owner.getId();
+    }
 
     public Pet(String name, String petKind, Integer age, User owner) {
         this.name = name;
