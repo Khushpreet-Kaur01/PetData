@@ -70,4 +70,12 @@ public class User {
     public void setPetCount(Integer petCount) {
         this.petCount = petCount;
     }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
 }
