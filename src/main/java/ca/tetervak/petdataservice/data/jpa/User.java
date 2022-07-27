@@ -1,5 +1,7 @@
 package ca.tetervak.petdataservice.data.jpa;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +20,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName = "";
 
-    @Column(name = "pet_count")
-    private Integer petCount = 0;
-
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Pet> pets = new ArrayList<>();
 
@@ -30,12 +29,10 @@ public class User {
     public User(
             String firstName,
             String lastName,
-            Integer petCount,
             List<Pet> pets
     ) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.petCount = petCount;
         this.pets = pets;
     }
 
@@ -63,19 +60,15 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Integer getPetCount() {
-        return petCount;
-    }
-
-    public void setPetCount(Integer petCount) {
-        this.petCount = petCount;
-    }
-
     public List<Pet> getPets() {
         return pets;
     }
 
     public void setPets(List<Pet> pets) {
         this.pets = pets;
+    }
+    @JsonGetter
+    Integer getPetCount(){
+        return pets.size();
     }
 }
