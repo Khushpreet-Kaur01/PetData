@@ -33,7 +33,6 @@ public class User {
             Integer petCount,
             List<Pet> pets
     ) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.petCount = petCount;
