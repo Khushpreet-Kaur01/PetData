@@ -2,7 +2,7 @@ package ca.tetervak.petdataservice.data.jpa;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -3,7 +3,7 @@ package ca.tetervak.petdataservice.data.jpa;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Pet {

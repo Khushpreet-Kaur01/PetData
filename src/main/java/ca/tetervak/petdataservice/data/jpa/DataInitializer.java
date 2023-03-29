@@ -2,16 +2,16 @@ package ca.tetervak.petdataservice.data.jpa;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DBInitializer {
+public class DataInitializer {
 
     private final UserRepository userRepository;
 
-    public DBInitializer(UserRepository userRepository) {
+    public DataInitializer(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
