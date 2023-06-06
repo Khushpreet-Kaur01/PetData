@@ -1,7 +1,6 @@
 package ca.tetervak.petdataservice.data.jpa;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -21,14 +20,14 @@ public class Pet {
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
-    private User owner;
+    private PetOwner owner;
 
     @JsonGetter
     Integer getOwnerId(){
         return owner.getId();
     }
 
-    public Pet(String name, String petKind, Integer age, User owner) {
+    public Pet(String name, String petKind, Integer age, PetOwner owner) {
         this.name = name;
         this.petKind = petKind;
         this.age = age;
@@ -70,11 +69,11 @@ public class Pet {
         this.age = age;
     }
 
-    public User getOwner() {
+    public PetOwner getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(PetOwner owner) {
         this.owner = owner;
     }
 }

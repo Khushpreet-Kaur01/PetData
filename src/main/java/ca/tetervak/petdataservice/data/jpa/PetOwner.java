@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "pet_owner")
-public class User {
+public class PetOwner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class User {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Pet> pets = new ArrayList<>();
 
-    public User() {
+    public PetOwner() {
     }
 
-    public User(
+    public PetOwner(
             String firstName,
             String lastName,
             List<Pet> pets
