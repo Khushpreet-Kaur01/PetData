@@ -18,6 +18,8 @@ public class Pet {
 
     private Integer age;
 
+    private String image = null;
+
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
     private PetOwner owner = null;
@@ -27,10 +29,11 @@ public class Pet {
         return owner.getId();
     }
 
-    public Pet(String name, String petKind, Integer age) {
+    public Pet(String name, String petKind, Integer age, String image) {
         this.name = name;
         this.petKind = petKind;
         this.age = age;
+        this.image = image;
     }
 
     public Pet() {
@@ -66,6 +69,14 @@ public class Pet {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public PetOwner getOwner() {
