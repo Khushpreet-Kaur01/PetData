@@ -20,18 +20,17 @@ public class Pet {
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
-    private PetOwner owner;
+    private PetOwner owner = null;
 
     @JsonGetter
     Integer getOwnerId(){
         return owner.getId();
     }
 
-    public Pet(String name, String petKind, Integer age, PetOwner owner) {
+    public Pet(String name, String petKind, Integer age) {
         this.name = name;
         this.petKind = petKind;
         this.age = age;
-        this.owner = owner;
     }
 
     public Pet() {

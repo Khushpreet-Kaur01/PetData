@@ -28,12 +28,10 @@ public class PetOwner {
 
     public PetOwner(
             String firstName,
-            String lastName,
-            List<Pet> pets
+            String lastName
     ) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.pets = pets;
     }
 
     public Integer getId() {
@@ -70,5 +68,10 @@ public class PetOwner {
     @JsonGetter
     Integer getPetCount(){
         return pets.size();
+    }
+
+    public void addPet(Pet pet){
+        pet.setOwner(this);
+        pets.add(pet);
     }
 }
