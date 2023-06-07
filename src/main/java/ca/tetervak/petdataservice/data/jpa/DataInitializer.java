@@ -3,8 +3,6 @@ package ca.tetervak.petdataservice.data.jpa;
 import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class DataInitializer {
