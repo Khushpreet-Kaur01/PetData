@@ -1,0 +1,29 @@
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  text-align: center;
+  letter-spacing: -0.5px;
+  background-color: #f5f5f5;
+}
+
+/* Animation for smooth appearance */
+.page-title {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+}

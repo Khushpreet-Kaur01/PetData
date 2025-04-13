@@ -1,1 +1,64 @@
-<p>pets works!</p>
+<div *ngIf="currentOwner" style="margin-bottom: 24px;">
+  <mat-card style="border-radius: 8px; box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);">
+    <mat-card-header style="padding: 16px;">
+      <mat-card-title style="font-size: 20px; font-weight: 500; color: #3f51b5;">
+        {{ currentOwner.firstName }} {{ currentOwner.lastName }}
+      </mat-card-title>
+      <mat-card-subtitle style="color: #757575;">
+        Owner ID: {{ currentOwner.id }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="padding: 0 16px 16px;">
+      <p style="margin: 0; font-size: 16px; color: #424242;">
+        Total Animals: <span style="color: #ff4081; font-weight: 500;">{{ animals.length }}</span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<h2 *ngIf="currentOwner" style="font-size: 20px; font-weight: 500; color: #3f51b5; margin: 24px 0 16px;">
+  Animals for {{ currentOwner.firstName }} {{ currentOwner.lastName }}
+</h2>
+
+<mat-table [dataSource]="animals" class="mat-elevation-z8" style="width: 100%; margin-top: 16px;">
+
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+    <mat-cell *matCellDef="let animal">
+      <img [src]="animal.image" [alt]="animal.name" style="height: 80px; width: 80px; object-fit: cover; border-radius: 4px;">
+    </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let animal">{{ animal.name }}</mat-cell>
+  </ng-container>
+
+  <!-- Type Column -->
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+    <mat-cell *matCellDef="let animal">{{ animal.type }}</mat-cell>
+  </ng-container>
+
+  <!-- Age Column -->
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef>Age</mat-header-cell>
+    <mat-cell *matCellDef="let animal">{{ animal.age }}</mat-cell>
+  </ng-container>
+
+  <!-- Owner ID Column -->
+  <ng-container matColumnDef="ownerId">
+    <mat-header-cell *matHeaderCellDef>Owner ID</mat-header-cell>
+    <mat-cell *matCellDef="let animal">{{ animal.ownerId }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+</mat-table>
+<div style="margin-top: 24px;">
+  <button mat-raised-button color="primary" routerLink="/">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Owners List
+  </button>
+</div>
